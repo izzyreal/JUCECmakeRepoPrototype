@@ -25,9 +25,9 @@
 
 #pragma once
 
-#include "juce_audio_plugin_client/juce_audio_plugin_client.h"
-#include "juce_audio_devices/juce_audio_devices.h"
-#include "juce_audio_utils/juce_audio_utils.h"
+#ifndef DOXYGEN
+ #include "../utility/juce_CreatePluginFilter.h"
+#endif
 
 namespace juce
 {
@@ -425,7 +425,7 @@ private:
 
         On some platforms (such as iOS 10), the expected buffer size reported in
         audioDeviceAboutToStart may be smaller than the blocks passed to
-        audioDeviceIOCallbackWithContext. This can lead to out-of-bounds reads if the render
+        audioDeviceIOCallback. This can lead to out-of-bounds reads if the render
         callback depends on additional buffers which were initialised using the
         smaller size.
 
@@ -448,9 +448,9 @@ private:
             inner.audioDeviceAboutToStart (device);
         }
 
-        void audioDeviceIOCallbackWithContext (const float* const* inputChannelData,
+        void audioDeviceIOCallbackWithContext (const float** inputChannelData,
                                                int numInputChannels,
-                                               float* const* outputChannelData,
+                                               float** outputChannelData,
                                                int numOutputChannels,
                                                int numSamples,
                                                const AudioIODeviceCallbackContext& context) override
@@ -600,9 +600,9 @@ private:
     };
 
     //==============================================================================
-    void audioDeviceIOCallbackWithContext (const float* const* inputChannelData,
+    void audioDeviceIOCallbackWithContext (const float** inputChannelData,
                                            int numInputChannels,
-                                           float* const* outputChannelData,
+                                           float** outputChannelData,
                                            int numOutputChannels,
                                            int numSamples,
                                            const AudioIODeviceCallbackContext& context) override
@@ -968,7 +968,7 @@ private:
             enum { height = 30 };
 
             NotificationArea (Button::Listener* settingsButtonListener)
-                : notification ("notification", "Audio input is muted to avoid feedback loop"),
+                : notification ("notification", "Audio input is foo to avoid feedback loop"),
                  #if JUCE_IOS || JUCE_ANDROID
                   settingsButton ("Unmute Input")
                  #else
@@ -1165,3 +1165,4 @@ inline StandalonePluginHolder* StandalonePluginHolder::getInstance()
 }
 
 } // namespace juce
+
