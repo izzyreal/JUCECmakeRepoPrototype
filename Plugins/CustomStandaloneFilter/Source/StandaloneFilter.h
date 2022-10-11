@@ -1,8 +1,8 @@
 #pragma once
 
+#include "CustomStandaloneFilterWindow.h"
 #include "PropertiesFileOptions.h"
-#include <juce_audio_utils/juce_audio_utils.h>
-#include <juce_audio_plugin_client/Standalone/juce_StandaloneFilterWindow.h>
+//#include <juce_audio_utils/juce_audio_utils.h>
 
 extern juce::JUCEApplicationBase* juce_CreateApplication();
 
