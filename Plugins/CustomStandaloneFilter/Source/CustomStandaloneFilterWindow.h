@@ -26,7 +26,8 @@
 #pragma once
 
 #ifndef DOXYGEN
- #include "../utility/juce_CreatePluginFilter.h"
+#include "juce_audio_utils/juce_audio_utils.h"
+#include "juce_audio_plugin_client/juce_audio_plugin_client.h"
 #endif
 
 namespace juce

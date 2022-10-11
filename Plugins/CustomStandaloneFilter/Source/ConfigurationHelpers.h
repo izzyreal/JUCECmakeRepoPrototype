@@ -1,6 +1,6 @@
 #pragma once
 
-#include <juce_audio_plugin_client/Standalone/juce_StandaloneFilterWindow.h>
+#include "CustomStandaloneFilterWindow.h"
 
 namespace Helpers
 {
